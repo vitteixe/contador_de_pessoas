@@ -36,74 +36,86 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           backgroundColor: Colors.red, //Cor do fundo da Tela
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center, //Centralizando widgets
-            children: [
-              const Text(
-                "Pode Entrar",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w700,
-                ),
+          body: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/fundo.png"), //acessando image
+                fit: BoxFit.cover,
               ),
-              const Padding(
-                padding: EdgeInsets.all(28),
-                child: Text(
-                  "0",
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              //Centralizando widgets
+              children: [
+                const Text(
+                  "Pode Entrar",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 100,
-                    fontWeight: FontWeight.w500,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      // estilo do botão
-                      backgroundColor: Colors.white, //cor do fundo botão
-                      fixedSize: const Size(80, 80), // espaçamento fundo buttn
-                      primary: Colors.black54, //cor ao pressionar
-                      shape: RoundedRectangleBorder(
-                        // arredondando botão
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                    ),
-                    onPressed: decrement,
-                    child: const Text(
-                      "Saiu",
-                      style: TextStyle(
-                        //estilo do texto
-                        color: Colors.black,
-                        fontSize: 18,
-                      ),
+                const Padding(
+                  padding: EdgeInsets.all(28),
+                  child: Text(
+                    "0",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 100,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const SizedBox(width: 32), //widget invisivel (espaçamento)
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      fixedSize: const Size(80, 80),
-                      primary: Colors.black54,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        // estilo do botão
+                        backgroundColor: Colors.white,
+                        //cor do fundo botão
+                        fixedSize: const Size(80, 80),
+                        // espaçamento fundo buttn
+                        primary: Colors.black54,
+                        //cor ao pressionar
+                        shape: RoundedRectangleBorder(
+                          // arredondando botão
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                      ),
+                      onPressed: decrement,
+                      child: const Text(
+                        "Saiu",
+                        style: TextStyle(
+                          //estilo do texto
+                          color: Colors.black,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
-                    onPressed: increment,
-                    child: const Text(
-                      "Entrou",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
+                    const SizedBox(width: 32), //widget invisivel (espaçamento)
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        fixedSize: const Size(80, 80),
+                        primary: Colors.black54,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                      ),
+                      onPressed: increment,
+                      child: const Text(
+                        "Entrou",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ));
   }
