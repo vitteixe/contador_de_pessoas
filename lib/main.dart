@@ -19,13 +19,13 @@ class MyApp extends StatefulWidget {
 }
 
 //-- Função Decrementar --//
-void decrement (){
+void decrement() {
   print("decrementar");
 }
 //-! Função Decrementar --//
 
 //-- Função incrementar --//
-void increment (){
+void increment() {
   print("incrementar");
 }
 
@@ -47,30 +47,53 @@ class _MyAppState extends State<MyApp> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              const Text(
-                "0",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 100,
-                  fontWeight: FontWeight.w700,
+              const Padding(
+                padding: EdgeInsets.all(28),
+                child: Text(
+                  "0",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 100,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
+                    style: TextButton.styleFrom(
+                      // estilo do botão
+                      backgroundColor: Colors.white, //cor do fundo botão
+                      fixedSize: const Size(80, 80), // espaçamento fundo buttn
+                      primary: Colors.black54, //cor ao pressionar
+                      shape: RoundedRectangleBorder(
+                        // arredondando botão
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                    ),
                     onPressed: decrement,
-                    child: Text(
+                    child: const Text(
                       "Saiu",
                       style: TextStyle(
+                        //estilo do texto
                         color: Colors.black,
                         fontSize: 18,
                       ),
                     ),
                   ),
+                  const SizedBox(width: 32), //widget invisivel (espaçamento)
                   TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      fixedSize: const Size(80, 80),
+                      primary: Colors.black54,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                    ),
                     onPressed: increment,
-                    child: Text(
+                    child: const Text(
                       "Entrou",
                       style: TextStyle(
                         color: Colors.black,
