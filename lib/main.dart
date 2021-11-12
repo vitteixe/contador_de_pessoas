@@ -18,18 +18,29 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-//-- Função Decrementar --//
-void decrement() {
-  print("decrementar");
-}
-//-! Função Decrementar --//
-
-//-- Função incrementar --//
-void increment() {
-  print("incrementar");
-}
 
 class _MyAppState extends State<MyApp> {
+  int count = 0;
+  String inf = "Pode Entrar!";
+
+  //-- Função Decrementar --//
+  void decrement (){
+    setState(() {  //refazer a tela
+      count--;
+      print(count);
+    });
+  }
+  //-! Função Decrementar --//
+
+  //-- Função incrementar --//
+    void increment(){
+      setState(() {
+        count++;
+        print(count);
+      });
+    }
+  //-! Função incrementar --//
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,19 +58,19 @@ class _MyAppState extends State<MyApp> {
               mainAxisAlignment: MainAxisAlignment.center,
               //Centralizando widgets
               children: [
-                const Text(
-                  "Pode Entrar",
-                  style: TextStyle(
+                Text(
+                  "$inf",
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 30,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(28),
                   child: Text(
-                    "0",
-                    style: TextStyle(
+                    count.toString(),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 100,
                       fontWeight: FontWeight.w500,
