@@ -41,6 +41,9 @@ class _MyAppState extends State<MyApp> {
     }
   //-! Função incrementar --//
 
+  bool get isEmpty => count == 0;
+  bool get isFull => count == 20;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -59,8 +62,8 @@ class _MyAppState extends State<MyApp> {
               //Centralizando widgets
               children: [
                 Text(
-                  "$inf",
-                  style: const TextStyle(
+                  isFull ? "Lotado!" : "Pode Entrar",
+                  style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
                     fontWeight: FontWeight.w700,
@@ -70,8 +73,8 @@ class _MyAppState extends State<MyApp> {
                   padding: EdgeInsets.all(28),
                   child: Text(
                     count.toString(),
-                    style: const TextStyle(
-                      color: Colors.white,
+                    style: TextStyle(
+                      color: isFull ? Colors.red : Colors.white,
                       fontSize: 100,
                       fontWeight: FontWeight.w500,
                     ),
@@ -81,24 +84,19 @@ class _MyAppState extends State<MyApp> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                      style: TextButton.styleFrom(
-                        // estilo do botão
-                        backgroundColor: Colors.white,
-                        //cor do fundo botão
-                        fixedSize: const Size(80, 80),
-                        // espaçamento fundo buttn
-                        primary: Colors.black54,
-                        //cor ao pressionar
-                        shape: RoundedRectangleBorder(
-                          // arredondando botão
+                      style: TextButton.styleFrom(// estilo do botão
+                        backgroundColor:
+                          isEmpty ? Colors.white.withOpacity(0.2) : Colors.white, //cor do fundo botão
+                        fixedSize: const Size(80, 80), //espaçamento fundo butm
+                        primary: Colors.black54, //cor ao pressionar
+                        shape: RoundedRectangleBorder(// arredondando botão
                           borderRadius: BorderRadius.circular(24),
                         ),
                       ),
-                      onPressed: decrement,
+                      onPressed: isEmpty ? null : decrement,
                       child: const Text(
                         "Saiu",
-                        style: TextStyle(
-                          //estilo do texto
+                        style: TextStyle(//estilo do texto
                           color: Colors.black,
                           fontSize: 18,
                         ),
@@ -107,14 +105,15 @@ class _MyAppState extends State<MyApp> {
                     const SizedBox(width: 32), //widget invisivel (espaçamento)
                     TextButton(
                       style: TextButton.styleFrom(
-                        backgroundColor: Colors.white,
+                        backgroundColor:
+                          isFull ? Colors.white.withOpacity(0.2) : Colors.white,
                         fixedSize: const Size(80, 80),
                         primary: Colors.black54,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(24),
                         ),
                       ),
-                      onPressed: increment,
+                      onPressed: isFull ? null : increment,
                       child: const Text(
                         "Entrou",
                         style: TextStyle(
